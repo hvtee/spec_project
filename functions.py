@@ -1,4 +1,6 @@
 import ui
+import csv
+from Note import *
 
 
 def show_all():
@@ -14,7 +16,14 @@ def show_id():
 
 
 def create():
-    return
+    note = Note()
+    note.set_id()
+    note.set_date()
+    note.set_title(input("Title: "))
+    note.set_body(input("Body: "))
+    with open("notes.csv", mode='a', newline="", encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow([note.to_string()])
 
 
 def delete():
@@ -31,19 +40,19 @@ def exit():
 
 
 def choice(command: str):
-    if command.lower() == "show_all":
+    if command == "show_all":
         show_all()
-    elif command.lower() == "show_date":
+    elif command == "show_date":
         show_date()
-    elif command.lower() == "show_id":
+    elif command == "show_id":
         show_id()
-    elif command.lower() == "create":
+    elif command == "create":
         create()
-    elif command.lower() == "delete":
+    elif command == "delete":
         delete()
-    elif command.lower() == "edit":
+    elif command == "edit":
         edit()
-    elif command.lower() == "exit":
+    elif command == "exit":
         exit()
-    elif command.lower() == "help":
+    elif command == "help":
         ui.show_help()
