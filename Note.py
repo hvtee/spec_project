@@ -12,6 +12,9 @@ class Note:
         self._body = body
         self._date = date
 
+    def __del__(self):
+        return None
+
     def get_id(self):
         return self._id
 

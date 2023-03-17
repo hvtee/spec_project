@@ -25,7 +25,7 @@ def show_help():
 def input_command():
     command = input("Write a command: ").lower()
     while command not in ["help", "show_all", "show_date",
-                                  "create", "delete", "edit", "exit"]:
+                          "show_id", "create", "delete", "edit", "exit"]:
         print("Bad command")
         print()
         command = input("Write a command: ")
